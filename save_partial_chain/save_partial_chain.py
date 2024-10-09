@@ -86,6 +86,5 @@ if __name__ == "__main__":
     input_pdb = "4DJH.pdb"
     retained_part = {
         "A": "55:347",
-        "B": "75,80,90,92"
     }
     run(input_pdb, retained_part)
