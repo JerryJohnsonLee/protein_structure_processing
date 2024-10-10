@@ -45,7 +45,7 @@
 # echo "All packages have been successfully installed."
 
 
-sudo apt-get install cmake g++ libtiff-dev libeigen3-dev \
+apt-get install make cmake g++ libtiff-dev libeigen3-dev \
              libpng-dev libboost-all-dev \
              libpng-dev libsqlite3-dev
 
@@ -56,7 +56,7 @@ tar -xvzf fftw-3.3.9.tar.gz
 cd fftw-3.3.9
 ./configure --enable-single CFLAGS="-fPIC"
 make
-sudo make install
+make install
 cd ..
 rm -rf fftw-3.3.9 fftw-3.3.9.tar.gz
 
