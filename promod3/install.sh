@@ -45,30 +45,30 @@
 # echo "All packages have been successfully installed."
 
 
-# sudo apt-get install cmake g++ libtiff-dev libeigen3-dev \
-#              libpng-dev libboost-all-dev \
-#              libpng-dev libsqlite3-dev
+sudo apt-get install cmake g++ libtiff-dev libeigen3-dev \
+             libpng-dev libboost-all-dev \
+             libpng-dev libsqlite3-dev
 
-# # Install FFTW3 3.3.9 (with single precision)
-# echo "Installing FFTW3 3.3.9..."
-# wget http://www.fftw.org/fftw-3.3.9.tar.gz
-# tar -xvzf fftw-3.3.9.tar.gz
-# cd fftw-3.3.9
-# ./configure --enable-single CFLAGS="-fPIC"
-# make
-# sudo make install
-# cd ..
-# rm -rf fftw-3.3.9 fftw-3.3.9.tar.gz
+# Install FFTW3 3.3.9 (with single precision)
+echo "Installing FFTW3 3.3.9..."
+wget http://www.fftw.org/fftw-3.3.9.tar.gz
+tar -xvzf fftw-3.3.9.tar.gz
+cd fftw-3.3.9
+./configure --enable-single CFLAGS="-fPIC"
+make
+sudo make install
+cd ..
+rm -rf fftw-3.3.9 fftw-3.3.9.tar.gz
 
-OPEN_MM_ROOT="/home/jerry/mambaforge/envs/mara"
-COMPOUND_LIB="/home/jerry/mara/protein_structure_processing/compound_lib/compounds.chemlib"
+OPEN_MM_ROOT="/opt/conda/lib/python3.10"
+# COMPOUND_LIB="/home/jerry/mara/protein_structure_processing/compound_lib/compounds.chemlib"
 
 # Install openstructure
-# git clone https://git.scicore.unibas.ch/schwede/openstructure.git
+git clone https://git.scicore.unibas.ch/schwede/openstructure.git
 cd openstructure
 cmake . -DOPTIMIZE=ON -DENABLE_INFO=OFF -DENABLE_MM=ON \
         -DOPEN_MM_LIBRARY=$OPEN_MM_ROOT/lib/libOpenMM.so \
         -DOPEN_MM_INCLUDE_DIR=$OPEN_MM_ROOT/include/ \
         -DOPEN_MM_PLUGIN_DIR=$OPEN_MM_ROOT/lib/plugins \
-        -DCOMPOUND_LIB=$COMPOUND_LIB
+        # -DCOMPOUND_LIB=$COMPOUND_LIB
 make -j4
